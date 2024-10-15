@@ -14,8 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $errors['name'] = "El nombre es obligatorio.";
     } elseif (!filter_var($_POST["name"], FILTER_VALIDATE_NAME)) {
         $errors['email'] = "Formato de nombre no válido.";
-    } 
-    else {
+    } else {
         $name = $_POST["name"]; // Falta htmlspecialchars
     }
 

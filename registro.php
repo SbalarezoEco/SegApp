@@ -1,4 +1,6 @@
+
 <?php
+
 // Inicializar variables
 $name = "";
 $email = "";
@@ -10,7 +12,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Validar nombre
     if ($_POST["name"] == "") {
         $errors['name'] = "El nombre es obligatorio.";
-    } else {
+    } elseif (!filter_var($_POST["name"], FILTER_VALIDATE_NAME)) {
+        $errors['email'] = "Formato de nombre no válido.";
+    } 
+    else {
         $name = $_POST["name"]; // Falta htmlspecialchars
     }
 
@@ -33,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Guardar en la base de datos (falta código de conexión)
-    if (count($errors) == 0) {
+    if (empty(count($errors))) {
         // Simulación de registro
         echo "Registro exitoso.";
     }

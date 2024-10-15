@@ -1,4 +1,6 @@
+
 <?php
+
 // Inicializar variables y errores
 $name = $email = $password = "";
 $nameErr = $emailErr = $passwordErr = "";

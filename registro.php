@@ -57,11 +57,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
     <label for="name">Nombre:</label>
-    <input type="text" name="name" value="<?php echo $name; ?>">
+    <input type="text" name="name" value="<?php echo htmlspecialchars($name); ?>">
     <span style="color:red;"><?php echo htmlspecialchars(isset($errors['name']) ? $errors['name'] : ''); ?></span><br><br>
 
     <label for="email">Correo Electrónico:</label>
-    <input type="text" name="email" value="<?php echo $email; ?>">
+    <input type="text" name="email" value="<?php echo htmlspecialchars($email); ?>">
     <span style="color:red;"><?php echo htmlspecialchars(isset($errors['email']) ? $errors['email'] : ''); ?></span><br><br>
 
     <label for="password">Contraseña:</label>

@@ -3,7 +3,7 @@
 
 // Inicializar variables y errores
 $name = $email = $password = "";
-$nameErr = $emailErr = $passwordErr = "";
+$nameErr = $emailErr = $pssErr = "";
 $successMessage = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -25,15 +25,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Validar contraseña
     if (empty($_POST["password"])) {
-        $passwordErr = "La contraseña es obligatoria.";
+        $pssErr = "La contraseña es obligatoria.";
     } elseif (strlen($_POST["password"]) < 6) {
-        $passwordErr = "La contraseña debe tener al menos 6 caracteres.";
+        $pssErr = "La contraseña debe tener al menos 6 caracteres.";
     } else {
         $password = htmlspecialchars(trim($_POST["password"]));
     }
 
     // Si no hay errores, se puede procesar el registro
-    if (empty($nameErr) && empty($emailErr) && empty($passwordErr)) {
+    if (empty($nameErr) && empty($emailErr) && empty($pssErr)) {
         // Aquí iría el código para guardar en la base de datos, etc.
         $successMessage = "Registro exitoso.";
     }
@@ -68,7 +68,7 @@ if (!empty($successMessage)) {
 
     <label for="password">Contraseña:</label>
     <input type="password" name="password">
-    <span style="color:red;"><?php echo $passwordErr; ?></span><br><br>
+    <span style="color:red;"><?php echo $pssErr; ?></span><br><br>
 
     <input type="submit" value="Registrar">
 </form>
